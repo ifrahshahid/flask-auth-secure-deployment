@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./
+    networks:
+      my-network:
+        aliases:
+          - web-app
+    expose:
+      - "5000"
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    networks:
+      - my-network
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+
+networks:
+    my-network:

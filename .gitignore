@@ -1,0 +1,7 @@
+
+.env
+*.pyc
+flask_session
+app/dev.db
+logs.log
+app/static/.webassets-cache
